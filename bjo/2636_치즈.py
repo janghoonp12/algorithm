@@ -24,8 +24,6 @@ def melt(hour):
     else:
         ans = (hour + 1, c)
         melt(hour + 1)
-        
-    
 
 
 N, M = map(int, input().split())
