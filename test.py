@@ -1,32 +1,33 @@
-from collections import deque
+def dfs(cur):
+    print(cur)
+    global check
+    if cur == temp:
+        check = True
+        return
+    
+    if visited[v[cur]]:
+        return
+    
+    dfs(v[cur])
+    if check:
+        visited[cur] = True
+        numbers.append(cur)
 
 
-n = int(input())
-a, b = map(int, input().split())
-m = int(input())
-v = [[] for i in range(n + 1)]
-visited = [False for i in range(n + 1)]
+N = int(input())
+v = [0] + [int(input()) for i in range(N)]
+visited = [False for i in range(N + 1)]
 
-for i in range(m):
-    x, y = map(int, input().split())
-    v[x].append(y)
-    v[y].append(x)
+numbers = []
+for i in range(1, N + 1):
+    if visited[i]:
+        continue
 
-que = deque()
+    temp = i
+    visited[i] = True
+    check = False
+    dfs(v[i])
+    if check:
+        numbers.append(i)
 
-que.append(a)
-visited[a] = True
-
-while len(que) > 0:
-    cur = que[0]
-    que.popleft()
-
-    if cur == b:
-        
-
-    for nxt in v[cur]:
-        if visited[nxt]:
-            continue
-
-        que.append(nxt)
-        visited[nxt] = True
+print(numbers)
