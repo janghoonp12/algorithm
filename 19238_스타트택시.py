@@ -41,7 +41,6 @@ for i in range(M):
             visited[nx][ny] = True
             dist[i][nx][ny] = dist[i][cx][cy] + 1
 
-for i in range(M):
     if dist[i][x][y] == -1 or dist[i][passenger[i][2]][passenger[i][3]] == -1:
         print(-1)
         quit()
