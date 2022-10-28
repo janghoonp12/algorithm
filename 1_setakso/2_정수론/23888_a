@@ -1,0 +1,17 @@
+a, d = map(int, input().split())
+q = int(input())
+def gcd(x, y):
+    while x % y != 0:
+        g = x % y
+        x = y
+        y = g
+    return y
+G = gcd(a, d)
+for i in range(q):
+    c, l, r = map(int, input().split())
+    if c == 1:
+        print((2*a+(l+r-2)*d)*(r-l+1)//2)
+    elif l == r:
+        print(a+(l-1)*d)
+    else:
+        print(G)
